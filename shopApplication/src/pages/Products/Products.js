@@ -3,9 +3,13 @@ import React from 'react';
 import ProductCard from '../../components/ProductCard';
 import useFetch from '../../hooks/useFetch';
 
-export default function Products() {
+export default function Products({navigation}) {
+
+  const handleProductSelect = (id)=>{
+    navigation.navigate("Detail",{id:id});
+  }
   
-  const renderItem = ({item}) => <ProductCard product={item} />; 
+  const renderItem = ({item}) => <ProductCard product={item} onSelect={() => handleProductSelect(item.id)} />; 
   
   const {error,loading,data} = useFetch("products");
 
