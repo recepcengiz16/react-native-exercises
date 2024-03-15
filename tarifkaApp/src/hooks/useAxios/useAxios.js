@@ -5,10 +5,7 @@ function useAxios(url){
 
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
-    const [data, setData] = useState([null]);
-
-   
-
+    const [data, setData] = useState([]);
 
     useEffect(() => {        
         
@@ -16,10 +13,10 @@ function useAxios(url){
             try {
     
                 const {data : responseData} = await appAxios.get(url);                   
-                const response = await appAxios.get(url);
+                //const response = await appAxios.get(url);
                                
-                console.log("responseData",responseData.categories);
-                setData(responseData.categories);
+                console.log("responseData nedir",responseData);
+                setData(responseData);
                 setLoading(false);
     
             } catch (error) {
@@ -32,7 +29,7 @@ function useAxios(url){
 
         getData();  
 
-    }, []);
+    }, [url]);
 
     return {
         loading,

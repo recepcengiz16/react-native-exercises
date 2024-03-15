@@ -1,4 +1,4 @@
-import {  Text, View, FlatList, ActivityIndicator, Image, TouchableOpacity, Alert } from 'react-native'
+import { Text, View, FlatList, ActivityIndicator, Image, TouchableOpacity } from 'react-native'
 import React from 'react';
 import useAxios from '../../hooks/useAxios';
 import styles from "./Category.style";
@@ -7,7 +7,8 @@ import styles from "./Category.style";
 export default function Category({navigation}) {
 
     const {loading,error,data} = useAxios("categories.php");  
-    console.log(data)
+    console.log("categories",data);
+    const categories=data.categories;
     const renderItm = ({item}) => {
       return (
        <TouchableOpacity onPress={() => navigation.navigate("Meals",{name:item.strCategory})}>
@@ -31,7 +32,7 @@ export default function Category({navigation}) {
       <View>
       
         <FlatList
-          data={data}
+          data={categories}
           renderItem={renderItm}
           keyExtractor={(item) => item.idCategory.toString()}
         />
