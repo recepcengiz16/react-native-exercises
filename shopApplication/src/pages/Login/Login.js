@@ -7,11 +7,11 @@ export default function Login() {
   return (
     <SafeAreaView style={styles.container}>
       <View style={styles.logo_container}>
-        <Image source={require("../../assets/sepet.png")} />
+        <Image style={styles.logo} source={require("../../assets/sepet.png")} />
       </View>
       <View style={styles.body_container}>
-        <TextInput />
-        <TextInput />
+        <TextInput style={styles.input} />
+        <TextInput style={styles.input} />
         <Button title='Giriş Yap' />
       </View>
     </SafeAreaView>
