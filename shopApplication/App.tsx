@@ -18,20 +18,20 @@ export default function App(): React.JSX.Element {
   return (
     <NavigationContainer>
       <Stack.Navigator screenOptions={{ headerStyle: { backgroundColor:"#64b5f6" }}}>
-      <Stack.Screen
+        <Stack.Screen
           name="Login"
           component={Login}
           options={{
-           headerShown: false,
+            headerShown: false,
           }}
-         />
+        />
         <Stack.Screen
           name="Products"
           component={Products}
           options={{
             title: 'Dükkan',
           }}
-         />
+        />
         <Stack.Screen name="Detail" component={Detail} />
       </Stack.Navigator>
     </NavigationContainer>
