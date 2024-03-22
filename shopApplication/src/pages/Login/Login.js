@@ -10,8 +10,8 @@ export default function Login() {
         <Image style={styles.logo} source={require("../../assets/sepet.png")} />
       </View>
       <View style={styles.body_container}>
-        <TextInput style={styles.input} />
-        <TextInput style={styles.input} />
+        <TextInput style={styles.input} placeholder='Kullanıcı Adı' />
+        <TextInput style={styles.input} placeholder='Şifre' />
         <Button title='Giriş Yap' />
       </View>
     </SafeAreaView>

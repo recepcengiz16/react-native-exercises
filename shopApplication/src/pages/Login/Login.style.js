@@ -10,7 +10,8 @@ export default StyleSheet.create({
         height:Dimensions.get("window").height / 3,
         resizeMode:"contain",
         alignSelf:"center",
-        tintColor:"white"
+        //tintColor:"white",
+        //backgroundColor:"white"
     },
     logo_container:{
         flex:1,
