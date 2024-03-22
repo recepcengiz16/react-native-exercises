@@ -3,21 +3,18 @@ import React from 'react'
 import styles from "./Login.style";
 import { Formik } from 'formik';
 import usePost from "../../hooks/usePost";
-import appAxios from '../../utility';
 
 export default function Login() {
 
   //ne zaman butona basılırsa handlesubmiti çağırıyor o da formikdeki onSubmit callbackini tetikler. O callback de geriye post edilecek valueları geri döner
 
   //formik bizi her defasında state deki güncelleme olduğunda her defasında render oluyordu ya ondan da koruyor bizi
-  
   const {data,error,loading,post} = usePost();
+  
   const handleLogin = async (values) => {
-    //await post("auth/login",values);
-    //console.log("values",values);
-    const res =await appAxios.post("auth/login",values);
-    console.log(res)
-    //console.log("data: ",data);
+    await post("auth/login",{...values});
+    console.log("values",values);    
+    console.log("data: ",data);
   }
 
   if (error) {
@@ -55,7 +52,7 @@ export default function Login() {
                 onChangeText={handleChange("password")} 
                 secureTextEntry={true}
               />
-              <Button title='Giriş Yap' onPress={handleSubmit} />
+              <Button title='Giriş Yap' onPress={handleSubmit} disabled={loading} />
               
             </View>
           )
