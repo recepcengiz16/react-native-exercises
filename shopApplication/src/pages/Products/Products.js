@@ -1,7 +1,8 @@
-import { StyleSheet, Text, View, FlatList, ActivityIndicator } from 'react-native'
+import { StyleSheet, Text, View, FlatList, ActivityIndicator, Button } from 'react-native'
 import React from 'react';
 import ProductCard from '../../components/ProductCard';
 import useFetch from '../../hooks/useFetch';
+import {useDispatch} from "react-redux";
 
 export default function Products({navigation}) {
 
@@ -12,6 +13,7 @@ export default function Products({navigation}) {
   const renderItem = ({item}) => <ProductCard product={item} onSelect={() => handleProductSelect(item.id)} />; 
   
   const {error,loading,data} = useFetch("products");
+  const dispatch = useDispatch();
 
   if (loading) {
     return (
@@ -27,6 +29,8 @@ export default function Products({navigation}) {
 
   return (
     <View>
+
+      <Button title='LogOut' onPress={()=>dispatch({type:"SET_USER",payLoad:{user:null}})} />
 
       <FlatList
         data={data}
