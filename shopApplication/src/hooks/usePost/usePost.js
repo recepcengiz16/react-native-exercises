@@ -6,7 +6,7 @@ export default function usePost() {
     const [loading, setLoading] = useState(false);
     const [error, setError] = useState(null);
 
-    const post = async (url,apiData)=>{
+    const post = async (url,apiData) => {
         try {
             setLoading(true);
             const {data:responseData} = await appAxios.post(url,apiData);

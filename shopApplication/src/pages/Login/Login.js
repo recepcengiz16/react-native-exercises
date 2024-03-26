@@ -12,9 +12,10 @@ export default function Login() {
   const {data,error,loading,post} = usePost();
   
   const handleLogin = async (values) => {
-    await post("auth/login",{...values});
-    console.log("values",values);    
-    console.log("data: ",data);
+     console.log(values);
+     await post("auth/login",{...values});
+    // console.log("values",values);    
+    // console.log("data: ",data);
   }
 
   if (error) {
