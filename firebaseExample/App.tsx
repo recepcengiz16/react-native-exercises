@@ -8,11 +8,21 @@ import SignUp from './src/pages/auth/SignUp';
 const Stack = createNativeStackNavigator();
 
 export default function App(): React.JSX.Element {
-  return (
-    <NavigationContainer>
-      <Stack.Navigator>
+
+  const AuthStack = ()=> {
+    return (
+      <Stack.Navigator screenOptions={{headerShown:false}}>
         <Stack.Screen name="Login" component={Login} />
         <Stack.Screen name="SignUp" component={SignUp} />
+      </Stack.Navigator>
+    );
+  }
+
+
+  return (
+    <NavigationContainer>
+      <Stack.Navigator screenOptions={{headerShown:false}}>
+        <Stack.Screen name="Auth" component={AuthStack} />
       </Stack.Navigator>
     </NavigationContainer>
   );
